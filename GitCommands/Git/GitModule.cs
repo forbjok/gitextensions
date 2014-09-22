@@ -653,7 +653,7 @@ namespace GitCommands
         {
             var list = GetConflicts();
 
-            return list.Select(item => new GitItem(this) {FileName = item[0].Value}).ToList();
+            return list.Select(item => new GitItem(this) {FileName = item[0].Value ?? item[1].Value}).ToList();
         }
 
         public bool HandleConflictSelectSide(string fileName, string side)
